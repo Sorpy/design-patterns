@@ -4,7 +4,7 @@ package patterns.observer;
 import patterns.observer.qualifier.Created;
 import patterns.observer.qualifier.Updated;
 
-public class User extends Observable<User> implements Cloneable {
+class User extends Observable<User> implements Cloneable {
 
   private String username;
   private String password;
