@@ -20,8 +20,10 @@ public class Chat implements ChatMediator {
   @Override
   public void removeUser(User user) {
     this.users.remove(user);
-    System.out.println(user.name + " has been removed to the chat");
+    System.out.println(user.name + " has been removed from the chat");
   }
+
+
 
   @Override
   public void sendMessage(String message, User user) {
@@ -30,5 +32,10 @@ public class Chat implements ChatMediator {
         chatUser.receive(user, message);
       }
     }
+  }
+
+  @Override
+  public Set<User> getUserList() {
+    return users;
   }
 }

@@ -10,9 +10,11 @@ public class ChatUser extends User{
 
   @Override
   public void send(String message) {
-    System.out.println(name + " sent : " + message);
-    mediator.sendMessage(message,this);
-    checkBotCommands(message);
+    if (mediator.getUserList().contains(this)) {
+      System.out.println(name + " sent : " + message);
+      mediator.sendMessage(message, this);
+      checkBotCommands(message);
+    }
   }
 
   @Override
@@ -22,9 +24,9 @@ public class ChatUser extends User{
 
   private void checkBotCommands(String message) {
     if (message.equals("addBot")){
-      mediator.addUser(SingletonCatBot.getInstance(mediator,"catBot"));
-    }else if (message.equals("removeBot")){
-      mediator.removeUser(SingletonCatBot.getInstance(null,null));
+      SingletonCatBot.getInstance(mediator,"catBot");
+    }else if (message.equals("removeBot") && SingletonCatBot.isNull()){
+      mediator.removeUser(SingletonCatBot.getInstance(mediator,"kogata"));
     }
   }
 }

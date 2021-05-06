@@ -33,4 +33,8 @@ public class SingletonCatBot extends ChatUser {
 
     return instance;
   }
+
+  public static boolean isNull(){
+    return instance != null;
+  }
 }

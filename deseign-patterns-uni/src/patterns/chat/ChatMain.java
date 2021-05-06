@@ -13,6 +13,7 @@ public class ChatMain {
     user2.send("zdr");
     user2.send("addBot");
     user3.send("cat");
+    user3.send("cat");
 
   }
 }
